@@ -19,8 +19,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb+srv://duncan:root@cluster0-kuucd.mongodb.net/blog?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
-
+//mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/xyz?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/test?retryWrites=true&w=majority',{dbName: "blog", useNewUrlParser: true, useUnifiedTopology: true});
 const blogSchema = new mongoose.Schema({
 //  _id: Number,
   title: String,
@@ -118,7 +118,11 @@ app.get("/posts/:entryTitle", function (req, res) {
 */
 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(port, function() {
+  console.log("Server started on port "+port);
 });
