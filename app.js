@@ -19,8 +19,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/blog');
-
+//mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/xyz?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/test?retryWrites=true&w=majority',{dbName: "blog", useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb+srv://duncan:test123@cluster0-kuucd.mongodb.net/blog',{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://duncanmcewan:test123@cluster0-w7pho.mongodb.net/blog?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true});
 const blogSchema = new mongoose.Schema({
 //  _id: Number,
   title: String,
